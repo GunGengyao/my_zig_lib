@@ -38,12 +38,8 @@ pub fn read_file_as_string(path: []const u8) [*]u8 {
     return ans;
 }
 
-// actual printf
-//const stdout_file = std.io.getStdOut().writer();
-//var bw = std.io.bufferedWriter(stdout_file);
-//const stdout = bw.writer();
-//pub const printf = stdout.print;
-pub fn printf(comptime fmt: []const u8, arge: anytype) void {
+// actual print
+pub fn printf(comptime fmt: []const u8, arge: anytype) !void {
     const stdout_file = std.io.getStdOut().writer();
     var bw = std.io.bufferedWriter(stdout_file);
     const stdout = bw.writer();
